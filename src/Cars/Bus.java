@@ -7,15 +7,11 @@ public class Bus extends Transport<DriverD> {
     public static final String MAX_SPEED = "Максимальная скорость автобусов 90";
     public static final String PIT_STOP = "Автобусы ПИТ-СТОП";
 
-    public Bus(String transportBrand, String transportModel, int yearOfIssue, String transportCountry, String transportColor, int transportMaxSpeed, double engineVolume, DriverD driver) {
-        super(transportBrand, transportModel, yearOfIssue, transportCountry, transportColor, transportMaxSpeed, engineVolume, driver);
-        getTransportBrand(transportBrand);
-        getTransportModel(transportModel);
-        getEngineVolume(engineVolume);
-//        getYearOfIssue();
-//        getTransportCountry();
-//        setTransportColor(transportColor);
-//        setTransportMaxSpeed(transportMaxSpeed);
+    public Bus(String transportBrand, String transportModel, int transportMaxSpeed, double engineVolume, DriverD driver) {
+        super(transportBrand,transportModel,engineVolume,driver);
+        setTransportBrand(transportBrand);
+        setTransportModel(transportModel);
+        setEngineVolume(engineVolume);
     }
 
     @Override
@@ -24,21 +20,9 @@ public class Bus extends Transport<DriverD> {
                 "transportBrand ='" + transportBrand + '\'' +
                 ", transportModel ='" + transportModel + '\'' +
                 ", engineVolume ='" + engineVolume + '\'' +
-//                ", yearOfIssue=" + yearOfIssue +
-//                ", transportCountry='" + transportCountry + '\'' +
-//                ", transportColor='" + transportColor + '\'' +
-//                ", transportMaxSpeed=" + transportMaxSpeed +
                 '}';
     }
-//    @Override
-//    public void startMoving() {
-//
-//    }
-//
-//    @Override
-//    public void stopMoving() {
-//
-//    }
+
 
     @Override
     public String pitStop() {

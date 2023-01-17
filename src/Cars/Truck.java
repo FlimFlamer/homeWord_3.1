@@ -8,21 +8,12 @@ public class Truck extends Transport<DriverC> {
     public static final String PIT_STOP = "Грузовики ПИТ-СТОП";
 
 
-    public Truck(String transportBrand, String transportModel, int yearOfIssue, String transportCountry, String transportColor, int transportMaxSpeed, double engineVolume, DriverC driver) {
-        super(transportBrand, transportModel, yearOfIssue, transportCountry, transportColor, transportMaxSpeed, engineVolume, driver);
-        getTransportBrand(transportBrand);
-        getTransportModel(transportModel);
-        getEngineVolume(engineVolume);
+    public Truck(String transportBrand, String transportModel, double engineVolume, DriverC driver) {
+        super(transportBrand, transportModel, engineVolume, driver);
+        setTransportBrand(transportBrand);
+        setTransportModel(transportModel);
+        setEngineVolume(engineVolume);
         }
-//        @Override
-//        public void startMoving() {
-//
-//        }
-//
-//        @Override
-//        public void stopMoving() {
-//
-//        }
 
     @Override
     public String toString() {
