@@ -22,6 +22,8 @@ public abstract class Transport <D extends Driver> implements Сompeting {
         setEngineVolume(engineVolume);
         this.driver = driver;
     }
+
+    public abstract void printType();
     public String getTransportBrand() {
         return transportBrand;
     }

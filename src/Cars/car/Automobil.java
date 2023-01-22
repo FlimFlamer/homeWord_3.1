@@ -1,7 +1,10 @@
-package Cars;
+package Cars.car;
+import Cars.Transport;
 import Drivers.DriverB;
 
 public class Automobil extends Transport<DriverB> {
+
+    private BodyType bodyType;
     public static final String TIME_LAP = "Лучшее время для легковых 0:58:00";
     public static final String MAX_SPEED = "Максимальная скорость легковых 260";
     public static final String PIT_STOP = "Легковые ПИТ-СТОП";
@@ -16,7 +19,11 @@ public class Automobil extends Transport<DriverB> {
                 '}';
     }
 
-    public Automobil(String transportBrand, String transportModel, double engineVolume, DriverB driver) {
+    public Automobil(String transportBrand,
+                     String transportModel,
+                     double engineVolume,
+                     DriverB driver,
+                     BodyType bodyType) {
         super(transportBrand, transportModel,engineVolume, driver);
 
 
@@ -24,6 +31,24 @@ public class Automobil extends Transport<DriverB> {
         setTransportBrand(transportBrand);
         setTransportModel(transportModel);
         setEngineVolume(engineVolume);
+        this.bodyType = bodyType;
+    }
+
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
+    }
+
+    @Override
+    public void printType() {
+        if (bodyType != null){
+            System.out.println(bodyType);
+        } else {
+            System.out.println("Данных по транспортному средству недостаточно");
+        }
 
     }
 

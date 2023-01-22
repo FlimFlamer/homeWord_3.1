@@ -1,4 +1,10 @@
 import Cars.*;
+import Cars.bus.Bus;
+import Cars.bus.PassengerCapacity;
+import Cars.car.Automobil;
+import Cars.car.BodyType;
+import Cars.truck.LoadCapacity;
+import Cars.truck.Truck;
 import Drivers.DriverB;
 import Drivers.DriverC;
 import Drivers.DriverD;
@@ -8,16 +14,16 @@ public class Main {
         DriverB driverB = new DriverB("Володя", true, 3.5);
         DriverC driverC = new DriverC("Михалыч", true, 10);
         DriverD driverD = new DriverD("Степаныч", true, 25);
-        Automobil ladaGranta = new Automobil("Лада", "Гранта",  1.7, driverB);
-        Automobil audiA8 = new Automobil("Audi", "A8", 3.0, driverB);
-        Automobil bmwZ8 = new Automobil("BMW", "Z8", 3.0, driverB);
+        Automobil ladaGranta = new Automobil("Лада", "Гранта",  1.7, driverB, BodyType.SEDAN);
+        Automobil audiA8 = new Automobil("Audi", "A8", 3.0, driverB, BodyType.COUPE);
+        Automobil bmwZ8 = new Automobil("BMW", "Z8", 3.0, driverB, BodyType.COUPE);
 
-        Bus ikarus250 = new Bus("Икарус", "250", 1996,  10.6, driverD);
-        Bus liaz4292 = new Bus("ЛиАЗ", "4292", 2015,  4.4, driverD);
-        Bus manLion = new Bus("MAN", "Lion", 2016,  6.8, driverD);
-        Truck kamaz53504 = new Truck("Камаз", "53504",   12.0, driverC);
-        Truck manF2000 = new Truck("MAN", "F2000",  12.0, driverC);
-        Truck peterbilt579 = new Truck("Peterbilt", "579", 15.0, driverC);
+        Bus ikarus250 = new Bus("Икарус", "250", 1996,  10.6, driverD, PassengerCapacity.BIG);
+        Bus liaz4292 = new Bus("ЛиАЗ", "4292", 2015,  4.4, driverD, PassengerCapacity.BIG);
+        Bus manLion = new Bus("MAN", "Lion", 2016,  6.8, driverD, PassengerCapacity.BIG);
+        Truck kamaz53504 = new Truck("Камаз", "53504",   12.0, driverC, LoadCapacity.N2);
+        Truck manF2000 = new Truck("MAN", "F2000",  12.0, driverC, LoadCapacity.N2);
+        Truck peterbilt579 = new Truck("Peterbilt", "579", 15.0, driverC, LoadCapacity.N3);
 
         System.out.println(ladaGranta.toString());
         System.out.println(audiA8.toString());
