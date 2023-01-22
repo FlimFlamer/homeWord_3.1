@@ -1,6 +1,7 @@
 package Cars.truck;
 
 import Cars.Transport;
+import Cars.exeption.DiagnosticExeption;
 import Drivers.DriverC;
 
 public class Truck extends Transport<DriverC> {
@@ -62,6 +63,15 @@ public class Truck extends Transport<DriverC> {
             System.out.println(loadCapacity);
         } else {
             System.out.println("Данных по транспортному средству недостаточно");
+        }
+    }
+
+    @Override
+    public boolean diagnostics() throws DiagnosticExeption {
+        if (getDriver() != null && getDriver().getDrivingLicense()){
+            return true;
+        } else {
+            throw new DiagnosticExeption();
         }
     }
 }

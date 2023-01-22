@@ -3,6 +3,7 @@ import Cars.bus.Bus;
 import Cars.bus.PassengerCapacity;
 import Cars.car.Automobil;
 import Cars.car.BodyType;
+import Cars.exeption.DiagnosticExeption;
 import Cars.truck.LoadCapacity;
 import Cars.truck.Truck;
 import Drivers.DriverB;
@@ -14,6 +15,7 @@ public class Main {
         DriverB driverB = new DriverB("Володя", true, 3.5);
         DriverC driverC = new DriverC("Михалыч", true, 10);
         DriverD driverD = new DriverD("Степаныч", true, 25);
+
         Automobil ladaGranta = new Automobil("Лада", "Гранта",  1.7, driverB, BodyType.SEDAN);
         Automobil audiA8 = new Automobil("Audi", "A8", 3.0, driverB, BodyType.COUPE);
         Automobil bmwZ8 = new Automobil("BMW", "Z8", 3.0, driverB, BodyType.COUPE);
@@ -46,9 +48,15 @@ public class Main {
 
         System.out.println(Automobil.PIT_STOP);
 
-       printInfo(ladaGranta);
+        printInfo(ladaGranta);
         printInfo(ikarus250);
         printInfo(kamaz53504);
+
+        try {
+            System.out.println(ladaGranta.diagnostics());
+        } catch (DiagnosticExeption e) {
+            e.printStackTrace();
+        }
 
     }
 

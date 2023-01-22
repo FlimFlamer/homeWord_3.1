@@ -1,10 +1,9 @@
 package Cars;
 
+import Cars.exeption.DiagnosticExeption;
 import Drivers.Driver;
 
 public abstract class Transport <D extends Driver> implements Сompeting {
-
-
 
     protected String transportBrand;
     protected String transportModel;
@@ -24,6 +23,7 @@ public abstract class Transport <D extends Driver> implements Сompeting {
     }
 
     public abstract void printType();
+    public abstract boolean diagnostics() throws DiagnosticExeption;
     public String getTransportBrand() {
         return transportBrand;
     }
@@ -61,6 +61,5 @@ public abstract class Transport <D extends Driver> implements Сompeting {
     public D getDriver() {
         return this.driver;
     }
-
 
 }
