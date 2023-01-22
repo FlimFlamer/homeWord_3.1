@@ -2,6 +2,10 @@ package Cars;
 
 import Cars.exeption.DiagnosticExeption;
 import Drivers.Driver;
+import Mechanics.Mechanic;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Transport <D extends Driver> implements Сompeting {
 
@@ -9,6 +13,7 @@ public abstract class Transport <D extends Driver> implements Сompeting {
     protected String transportModel;
     protected double engineVolume;
     protected D driver;
+    private static final List<Mechanic> mechanics = new ArrayList<>();
 
     private static final String DEFAULT_VALUE = "default";
     private static final double DEFAULT_VOLUME = 3.0;
@@ -24,6 +29,10 @@ public abstract class Transport <D extends Driver> implements Сompeting {
 
     public abstract void printType();
     public abstract boolean diagnostics() throws DiagnosticExeption;
+
+    public static void addMechanic(Mechanic mechanic){
+        mechanics.add(mechanic);
+    }
     public String getTransportBrand() {
         return transportBrand;
     }
@@ -62,4 +71,7 @@ public abstract class Transport <D extends Driver> implements Сompeting {
         return this.driver;
     }
 
+    public List<Mechanic> getMechanics() {
+        return mechanics;
+    }
 }

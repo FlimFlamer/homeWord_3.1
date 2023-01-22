@@ -2,6 +2,7 @@ package Cars.car;
 import Cars.Transport;
 import Cars.exeption.DiagnosticExeption;
 import Drivers.DriverB;
+import Mechanics.Mechanic;
 
 public class Automobil extends Transport<DriverB> {
 

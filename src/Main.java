@@ -9,9 +9,21 @@ import Cars.truck.Truck;
 import Drivers.DriverB;
 import Drivers.DriverC;
 import Drivers.DriverD;
+import Mechanics.CarType;
+import Mechanics.Mechanic;
+import Mechanics.ServiceStation;
+
+import java.sql.Driver;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
+        Mechanic mechanic1 = new Mechanic("Механик Первый", "Фиксики", CarType.CAR);
+        Mechanic mechanic2 = new Mechanic("Механик Второй", "Лунтики", CarType.BUS);
+        Mechanic mechanic3 = new Mechanic("Механик Третий", "Синий Трактор", CarType.TRUCK);
+
         DriverB driverB = new DriverB("Володя", true, 3.5);
         DriverC driverC = new DriverC("Михалыч", true, 10);
         DriverD driverD = new DriverD("Степаныч", true, 25);
@@ -57,6 +69,39 @@ public class Main {
         } catch (DiagnosticExeption e) {
             e.printStackTrace();
         }
+
+        Automobil.addMechanic(mechanic1);
+        Bus.addMechanic(mechanic2);
+        Truck.addMechanic(mechanic3);
+
+        List<Transport<?>> raceCars = new ArrayList<>();
+        List<Drivers.Driver> drivers = new ArrayList<>();
+
+        raceCars.add(ladaGranta);
+        raceCars.add(audiA8);
+        raceCars.add(bmwZ8);
+        raceCars.add(ikarus250);
+        raceCars.add(liaz4292);
+        raceCars.add(manLion);
+        raceCars.add(kamaz53504);
+        raceCars.add(manF2000);
+        raceCars.add(peterbilt579);
+
+        drivers.add(driverB);
+        drivers.add(driverC);
+        drivers.add(driverD);
+
+        ServiceStation serviceStation = new ServiceStation();
+
+        ServiceStation.addTransportQueue(ladaGranta);
+        ServiceStation.addTransportQueue(bmwZ8);
+        ServiceStation.addTransportQueue(ikarus250);
+        ServiceStation.addTransportQueue(kamaz53504);
+        ServiceStation.addTransportQueue(peterbilt579);
+
+        ServiceStation.serviceTransport();
+        ServiceStation.serviceTransport();
+        ServiceStation.serviceTransport();
 
     }
 
