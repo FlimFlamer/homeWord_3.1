@@ -14,10 +14,7 @@ import Mechanics.CarType;
 import Mechanics.Mechanic;
 import Mechanics.ServiceStation;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -105,9 +102,20 @@ public class Main {
         ServiceStation.serviceTransport();
         ServiceStation.serviceTransport();
 
+        Map<Transport<?>, Mechanic> transportMechanicMap = new HashMap<>();
+
+        for (Transport<?> transport: raceCars) {
+            for (Mechanic mechanic: transport.getMechanics()){
+                transportMechanicMap.put(transport, mechanic);
+            }
+        }
+        System.out.println(transportMechanicMap);
+
+
     }
 
     public static void printInfo(Transport<?> transport) {
         System.out.println("водитель " + transport.getDriver().getName() + " управляет автомобилем " + transport.getTransportBrand() + " " + transport.getTransportModel() + " и будет участвовать в заезде");
     }
+
 }

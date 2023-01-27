@@ -2,10 +2,11 @@ package Mechanics;
 
 public class Mechanic {
 
-
     private String name;
     private String company;
     private CarType carType;
+
+
 
     public Mechanic(String name, String company, CarType carType) {
         this.name = name;
@@ -42,5 +43,13 @@ public class Mechanic {
 
     public void setCarType(CarType carType) {
         this.carType = carType;
+    }
+    @Override
+    public String toString() {
+        return "Mechanic{" +
+                "name='" + name + '\'' +
+                ", company='" + company + '\'' +
+                ", carType=" + carType +
+                '}';
     }
 }

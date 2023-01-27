@@ -13,7 +13,7 @@ public abstract class Transport <D extends Driver> implements Сompeting {
     protected String transportModel;
     protected double engineVolume;
     protected D driver;
-    private static final List<Mechanic> mechanics = new ArrayList<>();
+    public static List<Mechanic> mechanics = new ArrayList<>();
 
     private static final String DEFAULT_VALUE = "default";
     private static final double DEFAULT_VOLUME = 3.0;
@@ -70,7 +70,6 @@ public abstract class Transport <D extends Driver> implements Сompeting {
     public D getDriver() {
         return this.driver;
     }
-
     public List<Mechanic> getMechanics() {
         return mechanics;
     }
