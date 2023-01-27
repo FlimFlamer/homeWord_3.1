@@ -6,6 +6,7 @@ import Cars.car.BodyType;
 import Cars.exeption.DiagnosticExeption;
 import Cars.truck.LoadCapacity;
 import Cars.truck.Truck;
+import Drivers.Driver;
 import Drivers.DriverB;
 import Drivers.DriverC;
 import Drivers.DriverD;
@@ -13,9 +14,10 @@ import Mechanics.CarType;
 import Mechanics.Mechanic;
 import Mechanics.ServiceStation;
 
-import java.sql.Driver;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -75,7 +77,7 @@ public class Main {
         Truck.addMechanic(mechanic3);
 
         List<Transport<?>> raceCars = new ArrayList<>();
-        List<Drivers.Driver> drivers = new ArrayList<>();
+        Set<Driver> drivers = new HashSet<>();
 
         raceCars.add(ladaGranta);
         raceCars.add(audiA8);
