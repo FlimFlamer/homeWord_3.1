@@ -1,5 +1,8 @@
 package Mechanics;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Mechanic {
 
     private String name;

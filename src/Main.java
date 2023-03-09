@@ -74,7 +74,8 @@ public class Main {
         Truck.addMechanic(mechanic3);
 
         List<Transport<?>> raceCars = new ArrayList<>();
-        Set<Driver> drivers = new HashSet<>();
+        List<Driver> drivers = new ArrayList<>();
+        Set<Driver> driverSet = new HashSet<>(drivers);
 
         raceCars.add(ladaGranta);
         raceCars.add(audiA8);
