@@ -6,6 +6,7 @@ import Mechanics.Mechanic;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Transport <D extends Driver> implements Сompeting {
 
@@ -26,6 +27,7 @@ public abstract class Transport <D extends Driver> implements Сompeting {
         setEngineVolume(engineVolume);
         this.driver = driver;
     }
+
 
     public abstract void printType();
     public abstract boolean diagnostics() throws DiagnosticExeption;
@@ -72,5 +74,18 @@ public abstract class Transport <D extends Driver> implements Сompeting {
     }
     public List<Mechanic> getMechanics() {
         return mechanics;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport<?> transport = (Transport<?>) o;
+        return Double.compare(transport.engineVolume, engineVolume) == 0 && Objects.equals(transportBrand, transport.transportBrand) && Objects.equals(transportModel, transport.transportModel) && Objects.equals(driver, transport.driver);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(transportBrand, transportModel, engineVolume, driver);
     }
 }
