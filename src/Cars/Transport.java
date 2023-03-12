@@ -14,7 +14,7 @@ public abstract class Transport <D extends Driver> implements Сompeting {
     protected String transportModel;
     protected double engineVolume;
     protected D driver;
-    public static List<Mechanic> mechanics = new ArrayList<>();
+    public List<Mechanic> mechanics = new ArrayList<>();
 
     private static final String DEFAULT_VALUE = "default";
     private static final double DEFAULT_VOLUME = 3.0;
@@ -32,7 +32,7 @@ public abstract class Transport <D extends Driver> implements Сompeting {
     public abstract void printType();
     public abstract boolean diagnostics() throws DiagnosticExeption;
 
-    public static void addMechanic(Mechanic mechanic){
+    public void addMechanic(Mechanic mechanic){
         mechanics.add(mechanic);
     }
     public String getTransportBrand() {

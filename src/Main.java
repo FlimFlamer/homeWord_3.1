@@ -1,4 +1,4 @@
-import Cars.*;
+import Cars.Transport;
 import Cars.bus.Bus;
 import Cars.bus.PassengerCapacity;
 import Cars.car.Automobil;
@@ -27,15 +27,16 @@ public class Main {
         DriverC driverC = new DriverC("Михалыч", true, 10);
         DriverD driverD = new DriverD("Степаныч", true, 25);
 
-        Automobil ladaGranta = new Automobil("Лада", "Гранта",  1.7, driverB, BodyType.SEDAN);
+        Automobil ladaGranta = new Automobil("Лада", "Гранта", 1.7, driverB, BodyType.SEDAN);
         Automobil audiA8 = new Automobil("Audi", "A8", 3.0, driverB, BodyType.COUPE);
         Automobil bmwZ8 = new Automobil("BMW", "Z8", 3.0, driverB, BodyType.COUPE);
 
-        Bus ikarus250 = new Bus("Икарус", "250", 1996,  10.6, driverD, PassengerCapacity.BIG);
-        Bus liaz4292 = new Bus("ЛиАЗ", "4292", 2015,  4.4, driverD, PassengerCapacity.BIG);
-        Bus manLion = new Bus("MAN", "Lion", 2016,  6.8, driverD, PassengerCapacity.BIG);
-        Truck kamaz53504 = new Truck("Камаз", "53504",   12.0, driverC, LoadCapacity.N2);
-        Truck manF2000 = new Truck("MAN", "F2000",  12.0, driverC, LoadCapacity.N2);
+        Bus ikarus250 = new Bus("Икарус", "250", 1996, 10.6, driverD, PassengerCapacity.BIG);
+        Bus liaz4292 = new Bus("ЛиАЗ", "4292", 2015, 4.4, driverD, PassengerCapacity.BIG);
+        Bus manLion = new Bus("MAN", "Lion", 2016, 6.8, driverD, PassengerCapacity.BIG);
+
+        Truck kamaz53504 = new Truck("Камаз", "53504", 12.0, driverC, LoadCapacity.N2);
+        Truck manF2000 = new Truck("MAN", "F2000", 12.0, driverC, LoadCapacity.N2);
         Truck peterbilt579 = new Truck("Peterbilt", "579", 15.0, driverC, LoadCapacity.N3);
 
         System.out.println(ladaGranta.toString());
@@ -69,9 +70,9 @@ public class Main {
             e.printStackTrace();
         }
 
-        Automobil.addMechanic(mechanic1);
-        Bus.addMechanic(mechanic2);
-        Truck.addMechanic(mechanic3);
+        ladaGranta.addMechanic(mechanic1);
+        ikarus250.addMechanic(mechanic2);
+        kamaz53504.addMechanic(mechanic3);
 
         List<Transport<?>> raceCars = new ArrayList<>();
         List<Driver> drivers = new ArrayList<>();
@@ -81,7 +82,6 @@ public class Main {
         raceCars.add(audiA8);
         raceCars.add(bmwZ8);
         raceCars.add(ikarus250);
-        raceCars.add(liaz4292);
         raceCars.add(manLion);
         raceCars.add(kamaz53504);
         raceCars.add(manF2000);
@@ -94,10 +94,8 @@ public class Main {
         ServiceStation serviceStation = new ServiceStation();
 
         ServiceStation.addTransportQueue(ladaGranta);
-        ServiceStation.addTransportQueue(bmwZ8);
         ServiceStation.addTransportQueue(ikarus250);
         ServiceStation.addTransportQueue(kamaz53504);
-        ServiceStation.addTransportQueue(peterbilt579);
 
         ServiceStation.serviceTransport();
         ServiceStation.serviceTransport();
@@ -105,8 +103,8 @@ public class Main {
 
         Map<Transport<?>, Mechanic> transportMechanicMap = new HashMap<>();
 
-        for (Transport<?> transport: raceCars) {
-            for (Mechanic mechanic: transport.getMechanics()){
+        for (Transport<?> transport : raceCars) {
+            for (Mechanic mechanic : transport.getMechanics()) {
                 transportMechanicMap.put(transport, mechanic);
             }
         }
@@ -118,5 +116,4 @@ public class Main {
     public static void printInfo(Transport<?> transport) {
         System.out.println("водитель " + transport.getDriver().getName() + " управляет автомобилем " + transport.getTransportBrand() + " " + transport.getTransportModel() + " и будет участвовать в заезде");
     }
-
 }

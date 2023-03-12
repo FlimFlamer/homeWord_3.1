@@ -4,6 +4,8 @@ import Cars.Transport;
 import Cars.exeption.DiagnosticExeption;
 import Drivers.DriverD;
 
+import java.util.Objects;
+
 public class Bus extends Transport<DriverD> {
     private PassengerCapacity passengerCapacity;
     public static final String TIME_LAP = "Лучшее время для автобусов 1:21:00";
@@ -68,5 +70,19 @@ public class Bus extends Transport<DriverD> {
     @Override
     public boolean diagnostics() throws DiagnosticExeption {
         return false;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Bus bus = (Bus) o;
+        return passengerCapacity == bus.passengerCapacity;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), passengerCapacity);
     }
 }

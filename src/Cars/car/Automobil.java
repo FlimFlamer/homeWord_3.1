@@ -4,6 +4,8 @@ import Cars.exeption.DiagnosticExeption;
 import Drivers.DriverB;
 import Mechanics.Mechanic;
 
+import java.util.Objects;
+
 public class Automobil extends Transport<DriverB> {
 
     private BodyType bodyType;
@@ -84,6 +86,21 @@ public class Automobil extends Transport<DriverB> {
     @Override
     public String getMaxSpeed() {
         return MAX_SPEED;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Automobil automobil = (Automobil) o;
+        return bodyType == automobil.bodyType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), bodyType);
     }
 }
 
