@@ -4,6 +4,8 @@ import Cars.Transport;
 import Cars.exeption.DiagnosticExeption;
 import Drivers.DriverC;
 
+import java.util.Objects;
+
 public class Truck extends Transport<DriverC> {
 
     private LoadCapacity loadCapacity;
@@ -73,6 +75,20 @@ public class Truck extends Transport<DriverC> {
         } else {
             throw new DiagnosticExeption();
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Truck truck = (Truck) o;
+        return loadCapacity == truck.loadCapacity;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), loadCapacity);
     }
 }
 

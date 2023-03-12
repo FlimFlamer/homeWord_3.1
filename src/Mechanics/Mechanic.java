@@ -1,14 +1,13 @@
 package Mechanics;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Objects;
+
 
 public class Mechanic {
 
     private String name;
     private String company;
     private CarType carType;
-
 
 
     public Mechanic(String name, String company, CarType carType) {
@@ -54,5 +53,18 @@ public class Mechanic {
                 ", company='" + company + '\'' +
                 ", carType=" + carType +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mechanic mechanic = (Mechanic) o;
+        return Objects.equals(name, mechanic.name) && Objects.equals(company, mechanic.company) && carType == mechanic.carType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, company, carType);
     }
 }
